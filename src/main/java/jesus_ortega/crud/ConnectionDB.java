@@ -11,20 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 public class ConnectionDB {
-/*
-    public static Connection getConexion(){
-         Connection conn = null;
-  try{
-       
-            Class.forName("org.postgresql.Driver");
-            conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/crud", "postgres", "postgres");
-        
-    } catch (Exception e){
-        e.printStackTrace();
-    }
-  return conn;
-    }
-    */
+
     public void Ejecutar(String query){
         try {
             Connection conn = null;
