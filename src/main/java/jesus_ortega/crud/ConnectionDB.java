@@ -1,22 +1,25 @@
 
 package jesus_ortega.crud;
-import java.awt.HeadlessException;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 public class ConnectionDB {
 
+    String url = "jdbc:postgresql://localhost:5432/crud";
+    String user = "postgres";
+    String pass = "postgres";
+    
     public void Ejecutar(String query){
+        
         try {
             Connection conn = null;
             Class.forName("org.postgresql.Driver");
-            conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/crud", "postgres", "postgres");
+            conn = DriverManager.getConnection(url, user, pass);
            CallableStatement cs = conn.prepareCall(query);
             /*Statement state = conn.createStatement();
             ResultSet rs = state.executeQuery(query);*/
@@ -43,7 +46,7 @@ DefaultTableModel model = new DefaultTableModel();
             String query = "select * from personas";
              Connection conn = null;
             Class.forName("org.postgresql.Driver");
-            conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/crud", "postgres", "postgres");
+            conn = DriverManager.getConnection(url, user, pass);
             Statement state = conn.createStatement();
             ResultSet rs = state.executeQuery(query);
             
@@ -79,7 +82,7 @@ DefaultTableModel model = new DefaultTableModel();
             String query = "select * from personas where ci = " + parametro + ";";
              Connection conn = null;
             Class.forName("org.postgresql.Driver");
-            conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/crud", "postgres", "postgres");
+            conn = DriverManager.getConnection(url, user, pass);
             Statement state = conn.createStatement();
             ResultSet rs = state.executeQuery(query);
             
